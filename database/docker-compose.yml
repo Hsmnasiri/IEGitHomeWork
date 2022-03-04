@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+  pgdb:
+    image: postgres
+    restart: on-failure
+    environment:
+      POSTGRES_USER: heapifo
+      POSTGRES_PASSWORD: he@p!fo
+    volumes:
+      - 'pgdata:/var/lib/postgresql/data'
+    ports:
+      - '5432:5432'
+
+volumes:
+  pgdata:

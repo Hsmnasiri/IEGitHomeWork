@@ -1,0 +1,46 @@
+version: '3.5'
+
+services:
+
+  pgdb:
+    container_name: pgdb
+    image: postgres
+    restart: on-failure
+    ports:
+      - "5432:5432"
+    # environment:
+    #   POSTGRES_USER: heapifo
+    #   POSTGRES_PASSWORD: he@p!fo
+    networks:
+      - main_net
+    volumes:
+      - "db_vol:/var/lib/postgresql/data"
+    
+  api:
+    container_name: ma_hommie_api
+    depends_on:
+      - "pgdb" 
+    networks:
+      - main_net
+    volumes:
+      - "static_vol:/app/static" 
+    build: ./server/
+
+
+  nginx:
+    restart: on-failure
+    build: ./nginx/
+    ports:
+      - 8080:8080
+    networks:
+      - main_net
+    volumes:
+      - "static_vol:/www/static/"
+    
+
+volumes:
+  db_vol: {}
+  static_vol: {}
+
+networks:
+  main_net: {}

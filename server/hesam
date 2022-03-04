@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "4bb3dfba-7947-4b07-b47f-80075790210b",
+		"name": "http_monitoring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/calls",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\": \"heesamnasiri@gmail.com\",\r\n    \"Password\": \"mh20142014\",\r\n    \"urlID\":\"133\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/calls",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"calls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Nickname\":\"hesam\",\r\n    \"Password\":\"mh20142014\",\r\n    \"Email\":\"heesamnasiri@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/urls",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDM5MjEwNjgsInVzZXJfaWQiOjF9.WbjGl28m1R1EgCCI0jqysn0DMcgsum-bUEJt8Ep7BTM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"Name\":\"tessssssssssst\",\r\n    \"URL\":\"https://www.google.commmmm/\",\r\n    \"Type\":\"Get\",\r\n    \"owner_id\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/urls",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"urls"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
